@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" href="tailwind.css">
+    <style>
+        * {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        body {
+            background: hsl(235, 21%, 11%);
+            transition: 0.8s;
+        }
+
+        .white {
+            transition: 0.8s;
+            background: hsl(0, 0%, 98%);
+        }
+
+        .white>header {
+            background-image: url(./image/bg-desktop-light.jpg);
+        }
+
+        header {
+            transition: 0.8s;
+            padding-bottom: 5rem;
+            background-image: url(./image/bg-desktop-dark.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #toggler {
+            transition: 0.8s;
+            width: 30px;
+            height: 30px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url(./image/icon-sun.svg);
+        }
+
+        .whitebg {
+            background-image: url(./image/icon-moon.svg) !important;
+        }
+
+        .logo {
+            letter-spacing: 25px;
+        }
+
+        #todo {
+            background: hsl(235, 24%, 19%);
+        }
+
+        .list {
+            background: hsl(235, 24%, 19%);
+        }
+
+        .img {
+            background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+        }
+
+        .btn-check {
+            background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="pt-20">
+        <section class="max-w-screen-sm mx-auto p-4 flex items-center justify-between flexes">
+            <h1 class="logo text-white font-bold text-5xl ">TODO</h1>
+            <button id="toggler">
+
+            </button>
+        </section>
+        <section class="max-w-screen-sm mx-auto p-4 input mt-4 ">
+            <form action="#" id="form">
+                <input type="text" name="#" id="todo"
+                    class="rounded-md shadow-xl text-gray-400 py-6 w-full px-10 xs:px-20 outline-none focus:ring text-xl xs:text-2xl "
+                    placeholder="Create a new todo...">
+            </form>
+        </section>
+    </header>
+
+    <div class="p-4 max-w-screen-sm sm:mx-auto transform -translate-y-20 ">
+        <main class="list text-gray-600 box-border rounded-md shadow-xl">
+            <section class="rendered-list text-xl xs:text-2xl">
+                <div class="card border-b border-gray-700 py-6 px-4 text-center">Good Day! Record Some Todo Now!</div>
+            </section>
+
+            <footer class="flex justify-between p-6 flex-col xs:flex-row items-center gap-4 xs:gap-0">
+                <section class="left">
+                    <p id="items-left">
+                        <span id="quantity">0</span> items left
+                    </p>
+                </section>
+                <section class="completed flex gap-4 ">
+                    <button class="selection text-blue-500 transition duration-300 hover:text-white">All</button>
+                    <button class="selection transition duration-300 hover:text-white">Active</button>
+                    <button class="selection transition duration-300 hover:text-white">Completed</button>
+                </section>
+                <section class="clear">
+                    <button class="delete transition duration-300 hover:text-white">Clear Completed</button>
+                </section>
+            </footer>
+        </main>
+
+        <footer class="mt-10 list py-6 px-4  rounded-md shadow-xl text-white ">
+            <p id="greeting"></p>
+            <p id="current-time">Current Time: <span id="time"></span></p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script defer src="./todolist.js"></script>
+</body>
+
+</html>
