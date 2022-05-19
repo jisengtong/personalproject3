@@ -163,7 +163,7 @@ function updateQuantity() {
     }
 }
 
-deletebtn.addEventListener('dblclick', () => {
+deletebtn.addEventListener('click', () => {
     let slicedList = []
     for (let i = 0; i < todo_list.length; i++) {
         if (todo_list[i].status === 'Active') {
