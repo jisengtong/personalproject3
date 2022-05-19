@@ -200,17 +200,3 @@ document.getElementById('toggler').addEventListener('click', () => {
     document.getElementById('toggler').classList.toggle('whitebg')
     document.body.classList.toggle('white')
 })
-
-
-new Sortable(rendered_list, {
-    animation: 350,
-})
-
-rendered_list.addEventListener('change', () => {
-    const new_list = document.querySelectorAll('.description')
-    todo_list = []
-    new_list.forEach(x => {
-        todo_list.push({ name: x.textContent, status: Number(x.dataset.completed) === 1 ? 'Completed' : 'Active' })
-    })
-    saveList()
-})
