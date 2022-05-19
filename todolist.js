@@ -96,7 +96,7 @@ function renderList(status = '') {
                 button = `<button data-index="${i}"
                                 class="rounded-full w-7 h-7 xs:w-10 xs:h-10 flex-shrink-0 border border-gray-700 flex items-center justify-center outline-none focus:ring btn">
                             </button>`
-                renderedText += `<div class="card flex items-center gap-8 py-6 border-b border-gray-700 px-6 relative">
+                renderedText += `<div class="card flex items-center gap-4 xs:gap-8 py-6 border-b border-gray-700 px-6 relative">
                                     ${button}
                                     ${text}
                                     <button class="absolute right-8 transition duration-300 unlist" data-index="${i}"> <img src="./image/icon-cross.svg" alt="">  </button>
@@ -114,7 +114,7 @@ function renderList(status = '') {
                                 class="btn-check rounded-full w-7 h-7 xs:w-10 xs:h-10 flex-shrink-0 border border-gray-700 flex items-center justify-center outline-none focus:ring btn">
                                 <img src="./image/icon-check (3).svg" width="20 " alt="">
                             </button>`
-                renderedText += `<div class="card flex items-center gap-8 py-6 border-b border-gray-700 px-6 relative">
+                renderedText += `<div class="card flex items-center gap-4 xs:gap-8 py-6 border-b border-gray-700 px-6 relative">
                                     ${button}
                                     ${text}
                                     <button class="absolute right-8 transition duration-300 unlist" data-index="${i}"> <img src="./image/icon-cross.svg" alt="">  </button>
