@@ -70,13 +70,13 @@ function renderList(status = '') {
             if (todo_list[i].status === 'Completed') {
                 text = `<p class="text-gray-600 line-through description" data-completed="1"> ${todo_list[i].name}</p>`
                 button = `<button data-index="${i}"
-                                class="btn-check rounded-full w-8 h-8 xs:w-10 xs:h-10 border border-gray-700 flex items-center justify-center outline-none focus:ring btn">
+                                class="btn-check rounded-full w-7 h-7 xs:w-10 xs:h-10 flex-shrink-0 border border-gray-700 flex items-center justify-center outline-none focus:ring btn">
                                 <img src="./image/icon-check (3).svg" width="20 " alt="">
                             </button>`
             } else {
                 text = `<p class="text-white description"> ${todo_list[i].name}</p>`
                 button = `<button data-index="${i}"
-                                class="rounded-full w-10 h-10 border border-gray-700 flex items-center justify-center outline-none focus:ring btn">
+                                class="rounded-full w-7 h-7 xs:w-10 xs:h-10 flex-shrink-0 border border-gray-700 flex items-center justify-center outline-none focus:ring btn">
                             </button>`
             }
 
@@ -94,7 +94,7 @@ function renderList(status = '') {
                 count++
                 text = `<p class="text-white description" data-completed="0"> ${todo_list[i].name}</p>`
                 button = `<button data-index="${i}"
-                                class="rounded-full w-10 h-10 border border-gray-700 flex items-center justify-center outline-none focus:ring btn">
+                                class="rounded-full w-7 h-7 xs:w-10 xs:h-10 flex-shrink-0 border border-gray-700 flex items-center justify-center outline-none focus:ring btn">
                             </button>`
                 renderedText += `<div class="card flex items-center gap-8 py-6 border-b border-gray-700 px-6 relative">
                                     ${button}
@@ -111,7 +111,7 @@ function renderList(status = '') {
                 count++
                 text = `<p class="text-gray-600 line-through description" data-completed = "1"> ${todo_list[i].name}</p>`
                 button = `<button data-index="${i}"
-                                class="btn-check rounded-full w-10 h-10 border border-gray-700 flex items-center justify-center outline-none focus:ring btn">
+                                class="btn-check rounded-full w-7 h-7 xs:w-10 xs:h-10 flex-shrink-0 border border-gray-700 flex items-center justify-center outline-none focus:ring btn">
                                 <img src="./image/icon-check (3).svg" width="20 " alt="">
                             </button>`
                 renderedText += `<div class="card flex items-center gap-8 py-6 border-b border-gray-700 px-6 relative">
