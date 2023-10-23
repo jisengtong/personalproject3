@@ -74,7 +74,7 @@ function renderList(status = '') {
                                 <img src="./image/icon-check (3).svg" width="20" alt="">
                             </button>`
             } else {
-                text = `<p class="text-white description"> ${todo_list[i].name}</p>`
+                text = `<p class="text-white description" data-completed="0"> ${todo_list[i].name}</p>`
                 button = `<button data-index="${i}"
                                 class="rounded-full w-7 h-7 xs:w-10 xs:h-10 flex-shrink-0 border border-gray-700 flex items-center justify-center outline-none focus:ring btn">
                             </button>`
@@ -109,7 +109,7 @@ function renderList(status = '') {
         for (let i = 0; i < todo_list.length; i++) {
             if (todo_list[i].status === 'Completed') {
                 count++
-                text = `<p class="text-gray-600 line-through description" data-completed = "1"> ${todo_list[i].name}</p>`
+                text = `<p class="text-gray-600 line-through description" data-completed="1"> ${todo_list[i].name}</p>`
                 button = `<button data-index="${i}"
                                 class="btn-check rounded-full w-7 h-7 xs:w-10 xs:h-10 flex-shrink-0 border border-gray-700 flex items-center justify-center outline-none focus:ring btn">
                                 <img src="./image/icon-check (3).svg" width="20 " alt="">
@@ -130,23 +130,24 @@ function renderList(status = '') {
 function addEvent() {
     description = document.querySelectorAll('.description')
     document.querySelectorAll('.btn').forEach(x => x.addEventListener('click', () => {
-        x.classList.add('btn-check')
-        x.innerHTML = `<img src="./image/icon-check (3).svg" width="20 " alt="">`
-        description[x.dataset.index].classList.add('line-through', 'text-gray-600')
-        description[x.dataset.index].dataset.completed = "1"
-        todo_list[x.dataset.index].status = "Completed"
+        const isCompleted = description[x.dataset.index].dataset.completed === "0" ? true : false
+
+        if(isCompleted){
+            x.classList.add('btn-check')
+            x.innerHTML = `<img src="./image/icon-check (3).svg" width="20 " alt="">`
+            description[x.dataset.index].classList.add('line-through', 'text-gray-600')
+            description[x.dataset.index].dataset.completed = "1"
+            todo_list[x.dataset.index].status = "Completed"
+        }else{
+            x.classList.remove('btn-check')
+            x.innerHTML = ``
+            description[x.dataset.index].classList.remove('line-through', 'text-gray-600')
+            description[x.dataset.index].dataset.completed = "0"
+            todo_list[x.dataset.index].status = "Active"
+        }
         saveList()
     }))
-
-    document.querySelectorAll('.btn-check').forEach(x => x.addEventListener('click', () => {
-        x.classList.remove('btn-check')
-        x.innerHTML = ``
-        description[x.dataset.index].classList.remove('line-through', 'text-gray-600')
-        description[x.dataset.index].dataset.completed = "0"
-        todo_list[x.dataset.index].status = "Active"
-        saveList()
-    }))
-
+    
     document.querySelectorAll('.unlist').forEach(x => x.addEventListener('click', () => {
         x.parentElement.remove()
         todo_list.splice(x.dataset.index, 1);
