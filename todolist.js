@@ -71,7 +71,7 @@ function renderList(status = '') {
                 text = `<p class="text-gray-600 line-through description" data-completed="1"> ${todo_list[i].name}</p>`
                 button = `<button data-index="${i}"
                                 class="btn-check rounded-full w-7 h-7 xs:w-10 xs:h-10 flex-shrink-0 border border-gray-700 flex items-center justify-center outline-none focus:ring btn">
-                                <img src="./image/icon-check (3).svg" width="20 " alt="">
+                                <img src="./image/icon-check (3).svg" width="20" alt="">
                             </button>`
             } else {
                 text = `<p class="text-white description"> ${todo_list[i].name}</p>`
@@ -135,6 +135,15 @@ function addEvent() {
         description[x.dataset.index].classList.add('line-through', 'text-gray-600')
         description[x.dataset.index].dataset.completed = "1"
         todo_list[x.dataset.index].status = "Completed"
+        saveList()
+    }))
+
+    document.querySelectorAll('.btn-check').forEach(x => x.addEventListener('click', () => {
+        x.classList.remove('btn-check')
+        x.innerHTML = ``
+        description[x.dataset.index].classList.remove('line-through', 'text-gray-600')
+        description[x.dataset.index].dataset.completed = "0"
+        todo_list[x.dataset.index].status = "Active"
         saveList()
     }))
 
