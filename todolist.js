@@ -142,6 +142,7 @@ function addEvent() {
             x.classList.remove('btn-check')
             x.innerHTML = ``
             description[x.dataset.index].classList.remove('line-through', 'text-gray-600')
+            description[x.dataset.index].classList.add('text-white')
             description[x.dataset.index].dataset.completed = "0"
             todo_list[x.dataset.index].status = "Active"
         }
